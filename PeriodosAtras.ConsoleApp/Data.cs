@@ -8,9 +8,6 @@ namespace PeriodosAtras.ConsoleApp
 {
     public class Data
     {
-        DateTime dataMaior;
-        DateTime dataMenor;
-        
         public int ObterDiasDiferenca(string data)
         {
             DateTime dataInformada = Convert.ToDateTime(data);
@@ -59,81 +56,35 @@ namespace PeriodosAtras.ConsoleApp
 
         public string DifencaEntreDatas(string data)
         {
-            string resultado = "Resultado não encontrado";
+            string resultado = "";
 
-            if (ObterAnosDiferenca(data) > 0)
+            if (ObterAnosDiferenca(data) > 0 && ObterDiasDiferenca(data) >= 365)//ano
             {
-                if (ObterDiasDiferenca(data) >= 365)
-                {
-                    //resultado = Convert.ToString(ObterAnosDiferenca(data));
-                    resultado = EscreveNumeros.Escreve(ObterAnosDiferenca(data));
-                    Console.WriteLine(resultado + " ANO(S)");
-                }
-                else
-                {
-                    resultado = EscreveNumeros.Escreve(ObterDiasDiferenca(data));
-                    Console.WriteLine(resultado+" DIA(S)");
-                }
+                resultado += EscreveNumeros.Escreve(ObterAnosDiferenca(data));
+                Console.WriteLine(resultado + " ANO(S)");
             }
-            else if (ObterDiasDiferenca(data) > 0)
+            else if (ObterDiasDiferenca(data) > 0 && ObterHorasDiferenca(data) >= 24)//dias
             {
-                //Virificar as horas para saber se passou de um dia
-                if (ObterHorasDiferenca(data) >= 24)
-                {
-                    resultado = EscreveNumeros.Escreve(ObterDiasDiferenca(data));
-                    Console.WriteLine(resultado+" DIA(S)");
-                }
-                else
-                {
-                    resultado = EscreveNumeros.Escreve(ObterHorasDiferenca(data));
-                    Console.WriteLine(resultado+" HORA(S)");
-                }
-
+                resultado += EscreveNumeros.Escreve(ObterDiasDiferenca(data));
+                Console.WriteLine(resultado+" DIA(S)");
             }
-            else if (ObterHorasDiferenca(data) > 0)
+            else if (ObterHorasDiferenca(data) > 0 && ObterMinutosDiferenca(data) >= 60)//horas
             {
-                //Virifica se é maior que 1 hora
-                if (ObterMinutosDiferenca(data) >= 60)
-                {
-                    resultado = EscreveNumeros.Escreve(ObterHorasDiferenca(data));
-                    Console.WriteLine(resultado+" HORA(S)");
-                }
-                else
-                {
-                    resultado = EscreveNumeros.Escreve(ObterMinutosDiferenca(data));
-                    Console.WriteLine(resultado+" MINUTO(S)");
-                }
+                resultado += EscreveNumeros.Escreve(ObterHorasDiferenca(data));
+                Console.WriteLine(resultado+" HORA(S)");
             }
-            else if (ObterMinutosDiferenca(data) > 0)
+            else if (ObterMinutosDiferenca(data) > 0)//minutos
             {
-                //Virifica se é maior que 1 hora
-                if (ObterMinutosDiferenca(data) >= 60)
-                {
-                    resultado = EscreveNumeros.Escreve(ObterHorasDiferenca(data));
-                    Console.WriteLine(resultado+" HORA(S)");
-                }
-                else
-                {
-                    resultado = EscreveNumeros.Escreve(ObterMinutosDiferenca(data));
-                    Console.WriteLine(resultado+" MINUTO(S)");
-                }
+                resultado += EscreveNumeros.Escreve(ObterMinutosDiferenca(data));
+                Console.WriteLine(resultado+" MINUTO(S)");
+                
             }
-            else if (ObterSegundosDiferenca(data) > 0)
+            else if (ObterSegundosDiferenca(data) > 0 && ObterSegundosDiferenca(data) < 60)//segundos
             {
-                //Virifica se é maior que 1 minutos
-                if (ObterSegundosDiferenca(data) >= 60)
-                {
-                    resultado = EscreveNumeros.Escreve(ObterMinutosDiferenca(data));
-                    Console.WriteLine(resultado+" MINUTO(S)");
-                }
-                else
-                {
-                    resultado = EscreveNumeros.Escreve(ObterSegundosDiferenca(data));
-                    Console.WriteLine(resultado+" SEGUNDO(S)");
-                }
+                resultado += EscreveNumeros.Escreve(ObterSegundosDiferenca(data));
+                Console.WriteLine(resultado+" SEGUNDO(S)");
             }
             return resultado;
         }
-
     }
 }
