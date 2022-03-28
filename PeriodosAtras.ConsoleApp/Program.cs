@@ -6,21 +6,26 @@ namespace PeriodosAtras.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Data dataComparar = new Data();
-            string resultado;
-            
-            string anoDiferente = "24/03/2021 16:30:15";
-            string diasDiferente = "15/03/2022 16:30:15";
-            string horasDiferente = "25/03/2022 08:30:15";
-            string minutosDiferente = "25/03/2022 10:45:15";
-            string segundosDiferente = "25/03/2022 11:02:00";
+            ComparaDatas comparaDatas = new ComparaDatas();
 
-            dataComparar.DifencaEntreDatas(anoDiferente);
-            dataComparar.DifencaEntreDatas(diasDiferente);
-            dataComparar.DifencaEntreDatas(horasDiferente);
-            dataComparar.DifencaEntreDatas(minutosDiferente);
-            dataComparar.DifencaEntreDatas(segundosDiferente);
-            
+            string diasDiferente = "15/03/2021 16:30:15";
+            DateTime data = Convert.ToDateTime(diasDiferente);
+            Console.WriteLine(comparaDatas.VerificaPeriodo(data));
+
+            string diasDiferente2 = "15/01/2022 16:30:15";
+            DateTime data2 = Convert.ToDateTime(diasDiferente2);
+            Console.WriteLine(comparaDatas.VerificaPeriodo(data2));
+
+            string diasDiferente3 = "15/03/2022 16:30:15";
+            DateTime data3 = Convert.ToDateTime(diasDiferente3);
+            Console.WriteLine(comparaDatas.VerificaPeriodo(data3));
+
+            string diasDiferente4 = "28/03/2022 08:30:15";
+            DateTime data4 = Convert.ToDateTime(diasDiferente4);
+            Console.WriteLine(comparaDatas.VerificaPeriodo(data4));
+
+
+
             Console.ReadKey();
         }
     }
