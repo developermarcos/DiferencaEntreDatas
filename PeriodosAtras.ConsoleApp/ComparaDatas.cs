@@ -31,7 +31,8 @@ namespace PeriodosAtras.ConsoleApp
             }
 
         }
-        public string DiferencaAno(int dias)
+
+        private string DiferencaAno(int dias)
         {
             string dataExtenso;
             
@@ -44,7 +45,8 @@ namespace PeriodosAtras.ConsoleApp
             return dataExtenso;
 
         }
-        public string DiferencaMeses(int dias)
+
+        private string DiferencaMeses(int dias)
         {
             string dataExtenso;
 
@@ -56,7 +58,8 @@ namespace PeriodosAtras.ConsoleApp
 
             return dataExtenso;
         }
-        public string DiferencaDias(int data)
+
+        private string DiferencaDias(int data)
         {
             string dataExtenso;
 
@@ -65,7 +68,8 @@ namespace PeriodosAtras.ConsoleApp
 
             return dataExtenso;
         }
-        public string DiferencaInferiorUmDias(TimeSpan data)
+
+        private string DiferencaInferiorUmDias(TimeSpan data)
         {
             string dataExtenso;
 

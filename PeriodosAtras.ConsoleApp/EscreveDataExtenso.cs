@@ -23,6 +23,7 @@ namespace PeriodosAtras.ConsoleApp
 
             return data;
         }
+
         public string Dias(int dias)
         {
             string data;
@@ -31,6 +32,7 @@ namespace PeriodosAtras.ConsoleApp
 
             return data;
         }
+
         public string Meses(int meses, int dias)
         {
             string data;
@@ -40,6 +42,7 @@ namespace PeriodosAtras.ConsoleApp
                 data = NumeroPorExtenso(meses) + " mes(es) de diferença entre datas";
             return data;
         }
+
         public string Ano(int ano)
         {
             string data;
@@ -48,7 +51,8 @@ namespace PeriodosAtras.ConsoleApp
 
             return data;
         }
-        public string NumeroPorExtenso(int valor)
+
+        private string NumeroPorExtenso(int valor)
         {
             string numero = "";
             switch (valor)
@@ -149,7 +153,8 @@ namespace PeriodosAtras.ConsoleApp
             }
             return numero;
         }
-        public string HorasPorExtenso(int valor)
+
+        private string HorasPorExtenso(int valor)
         {
             string numero = "";
             switch (valor)
